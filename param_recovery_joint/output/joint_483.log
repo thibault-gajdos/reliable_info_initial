@@ -1,0 +1,72 @@
+============================================
+SLURM Job: 158715_483
+Node: n05
+Start: Sun Apr 26 03:18:59 CEST 2026
+============================================
+- The project is out-of-sync -- use `renv::status()` for details.
+- The project is out-of-sync -- use `renv::status()` for details.
+[k=483] alpha=3.5 beta=-0.2 a_infl=0.00 b_infl=0.00 sigma_infl=0.15 w=[1.20,1.10,1.00,0.90,0.80]
+Running MCMC with 4 parallel chains, with 2 thread(s) per chain...
+
+Chain 1 Iteration:    1 / 5000 [  0%]  (Warmup) 
+Chain 2 Iteration:    1 / 5000 [  0%]  (Warmup) 
+Chain 4 Iteration:    1 / 5000 [  0%]  (Warmup) 
+Chain 3 Iteration:    1 / 5000 [  0%]  (Warmup) 
+Chain 2 Iteration:  500 / 5000 [ 10%]  (Warmup) 
+Chain 1 Iteration:  500 / 5000 [ 10%]  (Warmup) 
+Chain 2 Iteration: 1000 / 5000 [ 20%]  (Warmup) 
+Chain 3 Iteration:  500 / 5000 [ 10%]  (Warmup) 
+Chain 1 Iteration: 1000 / 5000 [ 20%]  (Warmup) 
+Chain 2 Iteration: 1500 / 5000 [ 30%]  (Warmup) 
+Chain 3 Iteration: 1000 / 5000 [ 20%]  (Warmup) 
+Chain 1 Iteration: 1500 / 5000 [ 30%]  (Warmup) 
+Chain 2 Iteration: 2000 / 5000 [ 40%]  (Warmup) 
+Chain 2 Iteration: 2001 / 5000 [ 40%]  (Sampling) 
+Chain 3 Iteration: 1500 / 5000 [ 30%]  (Warmup) 
+Chain 1 Iteration: 2000 / 5000 [ 40%]  (Warmup) 
+Chain 1 Iteration: 2001 / 5000 [ 40%]  (Sampling) 
+Chain 2 Iteration: 2500 / 5000 [ 50%]  (Sampling) 
+Chain 3 Iteration: 2000 / 5000 [ 40%]  (Warmup) 
+Chain 3 Iteration: 2001 / 5000 [ 40%]  (Sampling) 
+Chain 1 Iteration: 2500 / 5000 [ 50%]  (Sampling) 
+Chain 4 Iteration:  500 / 5000 [ 10%]  (Warmup) 
+Chain 2 Iteration: 3000 / 5000 [ 60%]  (Sampling) 
+Chain 3 Iteration: 2500 / 5000 [ 50%]  (Sampling) 
+Chain 1 Iteration: 3000 / 5000 [ 60%]  (Sampling) 
+Chain 4 Iteration: 1000 / 5000 [ 20%]  (Warmup) 
+Chain 2 Iteration: 3500 / 5000 [ 70%]  (Sampling) 
+Chain 3 Iteration: 3000 / 5000 [ 60%]  (Sampling) 
+Chain 1 Iteration: 3500 / 5000 [ 70%]  (Sampling) 
+Chain 4 Iteration: 1500 / 5000 [ 30%]  (Warmup) 
+Chain 2 Iteration: 4000 / 5000 [ 80%]  (Sampling) 
+Chain 3 Iteration: 3500 / 5000 [ 70%]  (Sampling) 
+Chain 1 Iteration: 4000 / 5000 [ 80%]  (Sampling) 
+Chain 4 Iteration: 2000 / 5000 [ 40%]  (Warmup) 
+Chain 4 Iteration: 2001 / 5000 [ 40%]  (Sampling) 
+Chain 2 Iteration: 4500 / 5000 [ 90%]  (Sampling) 
+Chain 3 Iteration: 4000 / 5000 [ 80%]  (Sampling) 
+Chain 1 Iteration: 4500 / 5000 [ 90%]  (Sampling) 
+Chain 4 Iteration: 2500 / 5000 [ 50%]  (Sampling) 
+Chain 2 Iteration: 5000 / 5000 [100%]  (Sampling) 
+Chain 2 finished in 5641.8 seconds.
+Chain 3 Iteration: 4500 / 5000 [ 90%]  (Sampling) 
+Chain 1 Iteration: 5000 / 5000 [100%]  (Sampling) 
+Chain 1 finished in 6003.7 seconds.
+Chain 4 Iteration: 3000 / 5000 [ 60%]  (Sampling) 
+Chain 3 Iteration: 5000 / 5000 [100%]  (Sampling) 
+Chain 3 finished in 6130.5 seconds.
+Chain 4 Iteration: 3500 / 5000 [ 70%]  (Sampling) 
+Chain 4 Iteration: 4000 / 5000 [ 80%]  (Sampling) 
+Chain 4 Iteration: 4500 / 5000 [ 90%]  (Sampling) 
+Chain 4 Iteration: 5000 / 5000 [100%]  (Sampling) 
+Chain 4 finished in 7313.1 seconds.
+
+All 4 chains finished successfully.
+Mean chain execution time: 6272.3 seconds.
+Total execution time: 7313.7 seconds.
+
+[k=483] Done. divergences=0 max_rhat=1.003
+============================================
+End: Sun Apr 26 05:24:23 CEST 2026
+Exit code: 0
+============================================

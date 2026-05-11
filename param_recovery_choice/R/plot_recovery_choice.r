@@ -126,8 +126,17 @@ format_p <- function(p) {
 # HELPER: make one panel (matching reference style)
 # ============================================================================
 
-make_panel <- function(df, par, letter, show_errorbars = FALSE) {
+make_panel <- function(df, par, letter, show_errorbars = FALSE, axis_lim = NULL) {
   dd <- df %>% filter(param == par)
+
+  if (is.null(axis_lim)) {
+    all_vals <- c(dd$simulated, dd$estimated)
+    if (show_errorbars && all(c("q5", "q95") %in% names(dd)))
+      all_vals <- c(all_vals, dd$q5, dd$q95)
+    axis_lim <- range(all_vals, na.rm = TRUE)
+    axis_lim <- axis_lim + c(-0.08, 0.08) * diff(axis_lim)
+  }
+
   ct <- cor.test(dd$simulated, dd$estimated)
   label_text <- sprintf("italic(R) == %.2f*','~%s", ct$estimate, format_p(ct$p.value))
 
@@ -145,6 +154,9 @@ make_panel <- function(df, par, letter, show_errorbars = FALSE) {
                colour = "black") +
     annotate("text", x = -Inf, y = Inf, hjust = -0.08, vjust = 1.5,
              label = label_text, parse = TRUE, size = 3.2) +
+    scale_x_continuous(limits = axis_lim, expand = c(0, 0)) +
+    scale_y_continuous(limits = axis_lim, expand = c(0, 0)) +
+    coord_fixed() +
     labs(x = param_info[[par]]$sim,
          y = param_info[[par]]$fit,
          tag = letter) +
@@ -156,6 +168,15 @@ make_panel <- function(df, par, letter, show_errorbars = FALSE) {
     )
 
   return(p)
+}
+
+compute_shared_lim <- function(df, params, show_errorbars = FALSE) {
+  dd <- df %>% filter(param %in% params)
+  all_vals <- c(dd$simulated, dd$estimated)
+  if (show_errorbars && all(c("q5", "q95") %in% names(dd)))
+    all_vals <- c(all_vals, dd$q5, dd$q95)
+  lim <- range(all_vals, na.rm = TRUE)
+  lim + c(-0.05, 0.05) * diff(lim)
 }
 
 # ============================================================================
@@ -172,8 +193,13 @@ group_stats <- df_group %>%
 print(as.data.frame(group_stats), digits = 3)
 cat("\n")
 
+w_params <- c("w1","w2","w3","w4","w5")
+w_lim_group <- compute_shared_lim(df_group, w_params, show_errorbars = TRUE)
+
 panels_group <- lapply(seq_along(param_order), function(i) {
-  make_panel(df_group, param_order[i], panel_letters[i], show_errorbars = TRUE)
+  par <- param_order[i]
+  lim <- if (par %in% w_params) w_lim_group else NULL
+  make_panel(df_group, par, panel_letters[i], show_errorbars = TRUE, axis_lim = lim)
 })
 
 ## Layout: 2 rows — top: alpha, beta, w1, w2  |  bottom: w3, w4, w5
@@ -197,8 +223,12 @@ indiv_stats <- df_indiv %>%
 print(as.data.frame(indiv_stats), digits = 3)
 cat("\n")
 
+w_lim_indiv <- compute_shared_lim(df_indiv, w_params, show_errorbars = FALSE)
+
 panels_indiv <- lapply(seq_along(param_order), function(i) {
-  make_panel(df_indiv, param_order[i], panel_letters[i], show_errorbars = FALSE)
+  par <- param_order[i]
+  lim <- if (par %in% w_params) w_lim_indiv else NULL
+  make_panel(df_indiv, par, panel_letters[i], show_errorbars = FALSE, axis_lim = lim)
 })
 
 p_indiv <- (panels_indiv[[1]] | panels_indiv[[2]] | panels_indiv[[3]] | panels_indiv[[4]]) /

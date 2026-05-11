@@ -1,0 +1,16 @@
+This is cmdstanr version 0.9.0.9000
+- CmdStanR documentation and vignettes: mc-stan.org/cmdstanr
+- CmdStan path: /data/home/thibault/.cmdstan/cmdstan-2.38.0
+- CmdStan version: 2.38.0
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+slurmstepd-n03: error: *** JOB 158818 ON n03 CANCELLED AT 2026-04-24T12:21:17 DUE TO TIME LIMIT ***

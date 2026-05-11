@@ -1,0 +1,20 @@
+This is cmdstanr version 0.9.0.9000
+- CmdStanR documentation and vignettes: mc-stan.org/cmdstanr
+- CmdStan path: /data/home/thibault/.cmdstan/cmdstan-2.38.0
+- CmdStan version: 2.38.0
+
+Attaching package: ‘dplyr’
+
+The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+Chain 1 Informational Message: The current Metropolis proposal is about to be rejected because of the following issue:
+Chain 1 Exception: Exception: normal_lpdf: Scale parameter is 0, but must be positive! (in '/tmp/RtmpO6mW0g/model-c87de6d639205.stan', line 151, column 10 to column 60) (in '/tmp/RtmpO6mW0g/model-c87de6d639205.stan', line 206, column 2 to line 210, column 34)
+Chain 1 If this warning occurs sporadically, such as for highly constrained variable types like covariance matrices, then the sampler is fine,
+Chain 1 but if this warning occurs often then your model may be either severely ill-conditioned or misspecified.
+Chain 1 
