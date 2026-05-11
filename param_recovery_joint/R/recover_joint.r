@@ -24,7 +24,7 @@ model <- cmdstan_model(
 # 1. LOAD STIMULUS DATA FROM ACTUAL EXPERIMENT
 # ============================================================================
 
-load(file = './data/data_reliability_exp6.rdata')
+load(file = '../data/data_reliability_exp6.rdata')
 
 ## Recode choice, construct influence_sample indicator
 data <- data %>%
