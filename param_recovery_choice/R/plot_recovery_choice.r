@@ -269,10 +269,13 @@ colnames(mean_cor) <- param_cols
 display_labels <- c("a","b","w(1)","w(2)","w(3)","w(4)","w(5)")
 
 cor_long <- expand.grid(
-  x = factor(param_cols, levels = param_cols),
-  y = factor(param_cols, levels = rev(param_cols))
+  x = param_cols,
+  y = param_cols,
+  stringsAsFactors = FALSE
 )
-cor_long$r <- as.vector(mean_cor[param_cols, rev(param_cols)])
+cor_long$r <- as.vector(mean_cor)
+cor_long$x <- factor(cor_long$x, levels = param_cols)
+cor_long$y <- factor(cor_long$y, levels = rev(param_cols))
 
 p_corr <- ggplot(cor_long, aes(x = x, y = y, fill = r)) +
   geom_tile(colour = "white", linewidth = 0.5) +
